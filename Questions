@@ -27,6 +27,7 @@
 20. Sort the list in ascending order.
 
 ### Stacks
+
 21. Implement a stack using a list.
 22. Check if the stack is empty.
 23. Get the top element of the stack without removing it.
@@ -39,6 +40,7 @@
 30. Reverse a string using a stack.
 
 ### Queues
+
 31. Implement a queue using a list.
 32. Check if the queue is empty.
 33. Get the front element of the queue without removing it.
@@ -91,4 +93,42 @@
 68. Implement a hash table using open addressing with quadratic probing for collision resolution.
 69. Implement a hash table using double hashing for collision resolution.
 
-### More Questions to Follow...
+### Heaps
+
+70. Implement a Min-Heap class.
+71. Implement a Max-Heap class.
+72. Heap Sort Algorithm.
+73. Find the Kth smallest element in an array using a heap.
+74. Merge K sorted lists using a heap.
+75. Check if a binary tree is a heap.
+
+### Tries
+
+76. Implement a Trie class with insert and search methods.
+77. Implement a Trie class with delete method.
+78. Implement a Trie class with a method to find words with a given prefix.
+79. Count the number of words in a Trie.
+
+### Advanced Graph Algorithms
+80. Find the shortest path between two nodes using Dijkstra's algorithm.
+81. Find the shortest path between two nodes using Bellman-Ford algorithm.
+82. Find the minimum spanning tree using Kruskal's algorithm.
+83. Find the minimum spanning tree using Prim's algorithm.
+84. Find all strongly connected components in a directed graph using Kosaraju's algorithm.
+85. Find the shortest path between two nodes in an unweighted graph using Breadth-First Search (BFS).
+86. Find the connected components in an undirected graph.
+87. Check if a graph contains a cycle using Depth-First Search (DFS).
+88. Find the longest path in a Directed Acyclic Graph (DAG).
+89. Find all bridges in an undirected graph.
+90. Find the number of connected components in a graph.
+91. Implement a stack using a list.
+92. Implement a queue using a list.
+93. Implement a doubly linked list.
+94. Implement a binary search tree (BST).
+95. Check if a string is a palindrome.
+96. Reverse a string.
+97. Find the largest prime factor of a number.
+98. Find the nth Fibonacci number.
+99. Generate a list of prime numbers up to n using the Sieve of Eratosthenes.
+100. Find the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.
+
