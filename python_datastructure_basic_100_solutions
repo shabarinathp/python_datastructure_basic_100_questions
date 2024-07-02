@@ -2218,10 +2218,6 @@
     print(count_connected_components(graph))  # Output: 3
     ```
 
-### Additional Questions and Solutions
-
-Here are additional questions covering various aspects of data structures and algorithms:
-
 91. **Implement a stack using a list.**
 
     ```python
