@@ -1,0 +1,94 @@
+100  basic questions on data structures in Python will cover a wide array of topics, including arrays, lists, stacks, queues, linked lists, trees, graphs, hash tables, and more. Below are the questions.
+
+### Arrays
+
+1. Create an array of 5 elements and print it.
+2. Access the third element in the array.
+3. Change the value of the second element in the array to 10.
+4. Find the length of the array.
+5. Append a new element to the end of the array.
+6. Remove the last element from the array.
+7. Insert a new element at the second position in the array.
+8. Remove the element at the second position in the array.
+9. Find the index of the element with value 4 in the array.
+10. Sort the array in ascending order.
+
+### Lists
+
+11. Create a list of 5 elements and print it.
+12. Access the third element in the list.
+13. Change the value of the second element in the list to 10.
+14. Find the length of the list.
+15. Append a new element to the end of the list.
+16. Remove the last element from the list.
+17. Insert a new element at the second position in the list.
+18. Remove the element at the second position in the list.
+19. Find the index of the element with value 4 in the list.
+20. Sort the list in ascending order.
+
+### Stacks
+21. Implement a stack using a list.
+22. Check if the stack is empty.
+23. Get the top element of the stack without removing it.
+24. Implement a function to push an element onto the stack.
+25. Implement a function to pop an element from the stack.
+26. Implement a function to get the top element of the stack.
+27. Check if the stack is empty using a function.
+28. Create a stack with a maximum size and check if it is full.
+29. Implement a function to get the size of the stack.
+30. Reverse a string using a stack.
+
+### Queues
+31. Implement a queue using a list.
+32. Check if the queue is empty.
+33. Get the front element of the queue without removing it.
+34. Implement a function to enqueue an element into the queue.
+35. Implement a function to dequeue an element from the queue.
+36. Implement a function to get the front element of the queue.
+37. Check if the queue is empty using a function.
+38. Create a queue with a maximum size and check if it is full.
+39. Implement a function to get the size of the queue.
+40. Reverse a queue using a stack.
+
+### Linked Lists
+
+41. Create a node class for a singly linked list.
+42. Create a singly linked list and print its elements.
+43. Insert a new node at the beginning of a singly linked list.
+44. Insert a new node at the end of a singly linked list.
+45. Insert a new node after a given node in a singly linked list.
+46. Delete a node from a singly linked list.
+47. Search for a node in a singly linked list.
+48. Reverse a singly linked list.
+49. Find the middle of a singly linked list.
+50. Check if a singly linked list has a loop.
+
+### Trees
+
+51. Create a Node class for a binary tree.
+52. Insert a node into a binary tree.
+53. Inorder traversal of a binary tree.
+54. Preorder traversal of a binary tree.
+55. Postorder traversal of a binary tree.
+56. Level order traversal of a binary tree.
+57. Find the height of a binary tree.
+58. Count the number of nodes in a binary tree.
+59. Find the minimum value in a binary search tree.
+60. Find the maximum value in a binary search tree.
+
+### Graphs
+
+61. Create an adjacency list for an undirected graph.
+62. Perform Breadth-First Search (BFS) on a graph.
+63. Perform Depth-First Search (DFS) on a graph.
+64. Detect a cycle in an undirected graph using DFS.
+65. Detect a cycle in a directed graph using DFS.
+
+### Hash Tables
+
+66. Implement a hash table using chaining for collision resolution.
+67. Implement a hash table using open addressing with linear probing for collision resolution.
+68. Implement a hash table using open addressing with quadratic probing for collision resolution.
+69. Implement a hash table using double hashing for collision resolution.
+
+### More Questions to Follow...
