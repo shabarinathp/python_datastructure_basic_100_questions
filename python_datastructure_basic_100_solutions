@@ -1,0 +1,1355 @@
+100  basic questions on data structures in Python will cover a wide array of topics, including arrays, lists, stacks, queues, linked lists, trees, graphs, hash tables, and more. Below are the questions, along with their solutions.
+
+### Arrays
+
+1. **Create an array of 5 elements and print it.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    print(arr)
+    ```
+
+2. **Access the third element in the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    print(arr[2])
+    ```
+
+3. **Change the value of the second element in the array to 10.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    arr[1] = 10
+    print(arr)
+    ```
+
+4. **Find the length of the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    print(len(arr))
+    ```
+
+5. **Append a new element to the end of the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    arr.append(6)
+    print(arr)
+    ```
+
+6. **Remove the last element from the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    arr.pop()
+    print(arr)
+    ```
+
+7. **Insert a new element at the second position in the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    arr.insert(1, 10)
+    print(arr)
+    ```
+
+8. **Remove the element at the second position in the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    arr.pop(1)
+    print(arr)
+    ```
+
+9. **Find the index of the element with value 4 in the array.**
+    ```python
+    arr = [1, 2, 3, 4, 5]
+    print(arr.index(4))
+    ```
+
+10. **Sort the array in ascending order.**
+    ```python
+    arr = [5, 3, 1, 4, 2]
+    arr.sort()
+    print(arr)
+    ```
+
+### Lists
+
+11. **Create a list of 5 elements and print it.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    print(lst)
+    ```
+
+12. **Access the third element in the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    print(lst[2])
+    ```
+
+13. **Change the value of the second element in the list to 10.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    lst[1] = 10
+    print(lst)
+    ```
+
+14. **Find the length of the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    print(len(lst))
+    ```
+
+15. **Append a new element to the end of the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    lst.append(6)
+    print(lst)
+    ```
+
+16. **Remove the last element from the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    lst.pop()
+    print(lst)
+    ```
+
+17. **Insert a new element at the second position in the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    lst.insert(1, 10)
+    print(lst)
+    ```
+
+18. **Remove the element at the second position in the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    lst.pop(1)
+    print(lst)
+    ```
+
+19. **Find the index of the element with value 4 in the list.**
+    ```python
+    lst = [1, 2, 3, 4, 5]
+    print(lst.index(4))
+    ```
+
+20. **Sort the list in ascending order.**
+    ```python
+    lst = [5, 3, 1, 4, 2]
+    lst.sort()
+    print(lst)
+    ```
+
+### Stacks
+
+21. **Implement a stack using a list.**
+
+    ```python
+    stack = []
+
+    # Push elements
+    stack.append(1)
+    stack.append(2)
+    stack.append(3)
+
+    # Pop elements
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
+    ```
+
+22. **Check if the stack is empty.**
+    ```python
+    stack = []
+    print(len(stack) == 0)
+    ```
+
+23. **Get the top element of the stack without removing it.**
+    ```python
+    stack = [1, 2, 3]
+    print(stack[-1])
+    ```
+
+24. **Implement a function to push an element onto the stack.**
+    ```python
+    stack = []
+    
+    def push(stack, element):
+        stack.append(element)
+        
+    push(stack, 1)
+    print(stack)
+    ```
+
+25. **Implement a function to pop an element from the stack.**
+    ```python
+    stack = [1, 2, 3]
+    
+    def pop(stack):
+        if len(stack) == 0:
+            return None
+        return stack.pop()
+        
+    print(pop(stack))
+    print(stack)
+    ```
+
+26. **Implement a function to get the top element of the stack.**
+    ```python
+    stack = [1, 2, 3]
+    
+    def top(stack):
+        if len(stack) == 0:
+            return None
+        return stack[-1]
+        
+    print(top(stack))
+    ```
+
+27. **Check if the stack is empty using a function.**
+    ```python
+    stack = []
+    
+    def is_empty(stack):
+        return len(stack) == 0
+        
+    print(is_empty(stack))
+    ```
+
+28. **Create a stack with a maximum size and check if it is full.**
+    ```python
+    stack = [1, 2, 3]
+    max_size = 5
+    
+    def is_full(stack, max_size):
+        return len(stack) == max_size
+        
+    print(is_full(stack, max_size))
+    ```
+
+29. **Implement a function to get the size of the stack.**
+    ```python
+    stack = [1, 2, 3]
+    
+    def size(stack):
+        return len(stack)
+        
+    print(size(stack))
+    ```
+
+30. **Reverse a string using a stack.**
+    ```python
+    s = "hello"
+    stack = list(s)
+    reversed_string = ""
+    while stack:
+        reversed_string += stack.pop()
+    print(reversed_string)
+    ```
+
+### Queues
+
+31. **Implement a queue using a list.**
+    ```python
+    queue = []
+
+    # Enqueue elements
+    queue.append(1)
+    queue.append(2)
+    queue.append(3)
+
+    # Dequeue elements
+    print(queue.pop(0))
+    print(queue.pop(0))
+    print(queue.pop(0))
+    ```
+
+32. **Check if the queue is empty.**
+    ```python
+    queue = []
+    print(len(queue) == 0)
+    ```
+
+33. **Get the front element of the queue without removing it.**
+    ```python
+    queue = [1, 2, 3]
+    print(queue[0])
+    ```
+
+34. **Implement a function to enqueue an element into the queue.**
+    ```python
+    queue = []
+    
+    def enqueue(queue, element):
+        queue.append(element)
+        
+    enqueue(queue, 1)
+    print(queue)
+    ```
+
+35. **Implement a function to dequeue an element from the queue.**
+    ```python
+    queue = [1, 2, 3]
+    
+    def dequeue(queue):
+        if len(queue) == 0:
+            return None
+        return queue.pop(0)
+        
+    print(dequeue(queue))
+    print(queue)
+    ```
+
+36. **Implement a function to get the front element of the queue.**
+    ```python
+    queue = [1, 2, 3]
+    
+    def front(queue):
+        if len(queue) == 0:
+            return None
+        return queue[0]
+        
+    print(front(queue))
+    ```
+
+37. **Check if the queue is empty using a function.**
+    ```python
+    queue = []
+    
+    def is_empty(queue):
+        return len(queue) == 0
+        
+    print(is_empty(queue))
+    ```
+
+38. **Create a queue with a maximum size and check if it is full.**
+    ```python
+    queue = [1, 2, 3]
+    max_size = 5
+    
+    def is_full(queue, max_size):
+        return len(queue) == max_size
+        
+    print(is_full(queue, max_size))
+    ```
+
+39. **Implement a function to get the size of the queue.**
+    ```python
+    queue = [1, 2, 3]
+    
+    def size(queue):
+       
+
+ return len(queue)
+        
+    print(size(queue))
+    ```
+
+40. **Reverse a queue using a stack.**
+    ```python
+    queue = [1, 2, 3]
+    stack = []
+    while queue:
+        stack.append(queue.pop(0))
+    while stack:
+        queue.append(stack.pop())
+    print(queue)
+    ```
+
+### Linked Lists
+
+41. **Create a node class for a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+    ```
+
+42. **Create a singly linked list and print its elements.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    ll.head.next = second
+    second.next = third
+
+    ll.print_list()
+    ```
+
+43. **Insert a new node at the beginning of a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def insert_at_beginning(self, new_data):
+            new_node = Node(new_data)
+            new_node.next = self.head
+            self.head = new_node
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and insert node
+    ll = LinkedList()
+    ll.insert_at_beginning(1)
+    ll.insert_at_beginning(2)
+    ll.insert_at_beginning(3)
+    ll.print_list()
+    ```
+
+44. **Insert a new node at the end of a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def insert_at_end(self, new_data):
+            new_node = Node(new_data)
+            if self.head is None:
+                self.head = new_node
+                return
+            last = self.head
+            while last.next:
+                last = last.next
+            last.next = new_node
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and insert node
+    ll = LinkedList()
+    ll.insert_at_end(1)
+    ll.insert_at_end(2)
+    ll.insert_at_end(3)
+    ll.print_list()
+    ```
+
+45. **Insert a new node after a given node in a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def insert_after(self, prev_node, new_data):
+            if prev_node is None:
+                print("The given previous node must inLinkedList.")
+                return
+            new_node = Node(new_data)
+            new_node.next = prev_node.next
+            prev_node.next = new_node
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and insert node
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    ll.head.next = second
+    second.next = third
+
+    ll.insert_after(second, 4)
+    ll.print_list()
+    ```
+
+46. **Delete a node from a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def delete_node(self, key):
+            temp = self.head
+
+            if temp is not None:
+                if temp.data == key:
+                    self.head = temp.next
+                    temp = None
+                    return
+
+            while temp is not None:
+                if temp.data == key:
+                    break
+                prev = temp
+                temp = temp.next
+
+            if temp == None:
+                return
+
+            prev.next = temp.next
+            temp = None
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and delete node
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    ll.head.next = second
+    second.next = third
+
+    ll.delete_node(2)
+    ll.print_list()
+    ```
+
+47. **Search for a node in a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def search(self, key):
+            current = self.head
+            while current:
+                if current.data == key:
+                    return True
+                current = current.next
+            return False
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and search for node
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    ll.head.next = second
+    second.next = third
+
+    print(ll.search(2))
+    print(ll.search(4))
+    ```
+
+48. **Reverse a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def reverse(self):
+            prev = None
+            current = self.head
+            while current is not None:
+                next = current.next
+                current.next = prev
+                prev = current
+                current = next
+            self.head = prev
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and reverse it
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    ll.head.next = second
+    second.next = third
+
+    ll.reverse()
+    ll.print_list()
+    ```
+
+49. **Find the middle of a singly linked list.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def find_middle(self):
+            slow_ptr = self.head
+            fast_ptr = self.head
+            if self.head is not None:
+                while fast_ptr is not None and fast_ptr.next is not None:
+                    fast_ptr = fast_ptr.next.next
+                    slow_ptr = slow_ptr.next
+                print("The middle element is", slow_ptr.data)
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list and find middle
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    fourth = Node(4)
+    ll.head.next = second
+    second.next = third
+    third.next = fourth
+
+    ll.find_middle()
+    ```
+
+50. **Check if a singly linked list has a loop.**
+    ```python
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    class LinkedList:
+        def __init__(self):
+            self.head = None
+
+        def detect_loop(self):
+            slow_ptr = self.head
+            fast_ptr = self.head
+            while slow_ptr and fast_ptr and fast_ptr.next:
+                slow_ptr = slow_ptr.next
+                fast_ptr = fast_ptr.next.next
+                if slow_ptr == fast_ptr:
+                    return True
+            return False
+
+        def print_list(self):
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")
+                current = current.next
+            print("None")
+
+    # Create linked list with a loop and detect it
+    ll = LinkedList()
+    ll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    fourth = Node(4)
+    ll.head.next = second
+    second.next = third
+    third.next = fourth
+    fourth.next = second  # Creating a loop
+
+    print(ll.detect_loop())
+    ```
+
+
+### Trees
+
+51. **Create a Node class for a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+    ```
+
+52. **Insert a node into a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def insert(root, key):
+        if root is None:
+            return Node(key)
+        else:
+            if root.val < key:
+                root.right = insert(root.right, key)
+            else:
+                root.left = insert(root.left, key)
+        return root
+
+    # Create the root
+    root = Node(50)
+    insert(root, 30)
+    insert(root, 20)
+    insert(root, 40)
+    insert(root, 70)
+    insert(root, 60)
+    insert(root, 80)
+    ```
+
+53. **Inorder traversal of a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def inorder(root):
+        if root:
+            inorder(root.left)
+            print(root.val, end=" ")
+            inorder(root.right)
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    inorder(root)
+    ```
+
+54. **Preorder traversal of a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def preorder(root):
+        if root:
+            print(root.val, end=" ")
+            preorder(root.left)
+            preorder(root.right)
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    preorder(root)
+    ```
+
+55. **Postorder traversal of a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def postorder(root):
+        if root:
+            postorder(root.left)
+            postorder(root.right)
+            print(root.val, end=" ")
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    postorder(root)
+    ```
+
+56. **Level order traversal of a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def level_order(root):
+        if root is None:
+            return
+        
+        queue = []
+        queue.append(root)
+
+        while queue:
+            node = queue.pop(0)
+            print(node.val, end=" ")
+
+            if node.left:
+                queue.append(node.left)
+
+            if node.right:
+                queue.append(node.right)
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    level_order(root)
+    ```
+
+57. **Find the height of a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def height(node):
+        if node is None:
+            return 0
+        else:
+            l_height = height(node.left)
+            r_height = height(node.right)
+
+            if l_height > r_height:
+                return l_height + 1
+            else:
+                return r_height + 1
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    print(height(root))
+    ```
+
+58. **Count the number of nodes in a binary tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def count_nodes(root):
+        if root is None:
+            return 0
+        return 1 + count_nodes(root.left) + count_nodes(root.right)
+
+    # Create the root
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    print(count_nodes(root))
+    ```
+
+59. **Find the minimum value in a binary search tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def min_value_node(node):
+        current = node
+
+        while current.left is not None:
+            current = current.left
+
+        return current
+
+    # Create the root
+    root = Node(50)
+    root.left = Node(30)
+    root.right = Node(70)
+    root.left.left = Node(20)
+    root.left.right = Node(40)
+    root.right.left = Node(60)
+    root.right.right = Node(80)
+
+    print(min_value_node(root).val)
+    ```
+
+60. **Find the maximum value in a binary search tree.**
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def max_value_node(node):
+        current = node
+
+        while current.right is not None:
+            current = current.right
+
+        return current
+
+    # Create the root
+    root = Node(50)
+    root.left = Node(30)
+    root.right = Node(70)
+    root.left.left = Node(20)
+    root.left.right = Node(40)
+    root.right.left = Node(60)
+    root.right.right = Node(80)
+
+    print(max_value_node(root).val)
+    ```
+
+### Graphs
+
+61. **Create an adjacency list for an undirected graph.**
+    ```python
+    from collections import defaultdict
+
+    class Graph:
+        def __init__(self):
+            self.graph = defaultdict(list)
+
+        def add_edge(self, u, v):
+            self.graph[u].append(v)
+            self.graph[v].append(u)
+
+        def print_graph(self):
+            for node in self.graph:
+                print(node, "->", self.graph[node])
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(0, 4)
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+    g.add_edge(2, 3)
+    g.add_edge(3, 4)
+
+    g.print_graph()
+    ```
+
+62. **Perform Breadth-First Search (BFS) on a graph.**
+    ```python
+    from collections import defaultdict, deque
+
+    class Graph:
+        def __init__(self):
+            self.graph = defaultdict(list)
+
+        def add_edge(self, u, v):
+            self.graph[u].append(v)
+
+        def bfs(self, start):
+            visited = set()
+            queue = deque([start])
+
+            while queue:
+                node = queue.popleft()
+                if node not in visited:
+                    print(node, end=" ")
+                    visited.add(node)
+                    for neighbor in self.graph[node]:
+                        if neighbor not in visited:
+                            queue.append(neighbor)
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 3)
+
+    g.bfs(2)
+    ```
+
+63. **Perform Depth-First Search (DFS) on a graph.**
+    ```python
+    from collections import defaultdict
+
+    class Graph:
+        def __init__(self):
+            self.graph = defaultdict(list)
+
+        def add_edge(self, u, v):
+            self.graph[u].append(v)
+
+        def dfs_util(self, v, visited):
+            visited.add(v)
+            print(v, end=" ")
+
+            for neighbor in self.graph[v]:
+                if neighbor not in visited:
+                    self.dfs_util(neighbor, visited)
+
+        def dfs(self, start):
+            visited = set()
+            self.dfs_util(start, visited)
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 3)
+
+    g.dfs(2)
+    ```
+
+64. **Detect a cycle in an undirected graph using DFS.**
+    ```python
+    from collections import defaultdict
+
+    class Graph:
+        def __init__(self):
+            self.graph = defaultdict(list)
+
+        def add_edge(self, u,
+
+ v):
+            self.graph[u].append(v)
+            self.graph[v].append(u)
+
+        def is_cyclic_util(self, v, visited, parent):
+            visited[v] = True
+
+            for neighbor in self.graph[v]:
+                if not visited[neighbor]:
+                    if self.is_cyclic_util(neighbor, visited, v):
+                        return True
+                elif parent != neighbor:
+                    return True
+
+            return False
+
+        def is_cyclic(self):
+            visited = [False] * (len(self.graph))
+
+            for i in range(len(self.graph)):
+                if not visited[i]:
+                    if self.is_cyclic_util(i, visited, -1):
+                        return True
+
+            return False
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+
+    if g.is_cyclic():
+        print("Graph contains cycle")
+    else:
+        print("Graph does not contain cycle")
+    ```
+
+65. **Detect a cycle in a directed graph using DFS.**
+    ```python
+    from collections import defaultdict
+
+    class Graph:
+        def __init__(self):
+            self.graph = defaultdict(list)
+
+        def add_edge(self, u, v):
+            self.graph[u].append(v)
+
+        def is_cyclic_util(self, v, visited, rec_stack):
+            visited[v] = True
+            rec_stack[v] = True
+
+            for neighbor in self.graph[v]:
+                if not visited[neighbor]:
+                    if self.is_cyclic_util(neighbor, visited, rec_stack):
+                        return True
+                elif rec_stack[neighbor]:
+                    return True
+
+            rec_stack[v] = False
+            return False
+
+        def is_cyclic(self):
+            visited = [False] * (len(self.graph))
+            rec_stack = [False] * (len(self.graph))
+
+            for node in range(len(self.graph)):
+                if not visited[node]:
+                    if self.is_cyclic_util(node, visited, rec_stack):
+                        return True
+
+            return False
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+
+    if g.is_cyclic():
+        print("Graph contains cycle")
+    else:
+        print("Graph does not contain cycle")
+    ```
+
+### Hash Tables
+
+66. **Implement a hash table using chaining for collision resolution.**
+    ```python
+    class HashTable:
+        def __init__(self):
+            self.table = [[] for _ in range(10)]
+
+        def hash_function(self, key):
+            return key % len(self.table)
+
+        def insert(self, key, value):
+            hash_key = self.hash_function(key)
+            key_exists = False
+            bucket = self.table[hash_key]
+            for i, kv in enumerate(bucket):
+                k, v = kv
+                if key == k:
+                    key_exists = True
+                    break
+            if key_exists:
+                bucket[i] = (key, value)
+            else:
+                bucket.append((key, value))
+
+        def get(self, key):
+            hash_key = self.hash_function(key)
+            bucket = self.table[hash_key]
+            for k, v in bucket:
+                if k == key:
+                    return v
+            return None
+
+        def delete(self, key):
+            hash_key = self.hash_function(key)
+            bucket = self.table[hash_key]
+            for i, kv in enumerate(bucket):
+                k, v = kv
+                if k == key:
+                    del bucket[i]
+                    return True
+            return False
+
+    h = HashTable()
+    h.insert(1, 'one')
+    h.insert(2, 'two')
+    h.insert(3, 'three')
+    print(h.get(2))
+    h.delete(2)
+    print(h.get(2))
+    ```
+
+67. **Implement a hash table using open addressing with linear probing for collision resolution.**
+    ```python
+    class HashTable:
+        def __init__(self):
+            self.size = 10
+            self.table = [None] * self.size
+
+        def hash_function(self, key):
+            return key % self.size
+
+        def insert(self, key, value):
+            hash_key = self.hash_function(key)
+            while self.table[hash_key] is not None:
+                hash_key = (hash_key + 1) % self.size
+            self.table[hash_key] = (key, value)
+
+        def get(self, key):
+            hash_key = self.hash_function(key)
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    return v
+                hash_key = (hash_key + 1) % self.size
+            return None
+
+        def delete(self, key):
+            hash_key = self.hash_function(key)
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    self.table[hash_key] = None
+                    return True
+                hash_key = (hash_key + 1) % self.size
+            return False
+
+    h = HashTable()
+    h.insert(1, 'one')
+    h.insert(2, 'two')
+    h.insert(3, 'three')
+    print(h.get(2))
+    h.delete(2)
+    print(h.get(2))
+    ```
+
+68. **Implement a hash table using open addressing with quadratic probing for collision resolution.**
+    ```python
+    class HashTable:
+        def __init__(self):
+            self.size = 10
+            self.table = [None] * self.size
+
+        def hash_function(self, key):
+            return key % self.size
+
+        def insert(self, key, value):
+            hash_key = self.hash_function(key)
+            i = 1
+            while self.table[hash_key] is not None:
+                hash_key = (hash_key + i**2) % self.size
+                i += 1
+            self.table[hash_key] = (key, value)
+
+        def get(self, key):
+            hash_key = self.hash_function(key)
+            i = 1
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    return v
+                hash_key = (hash_key + i**2) % self.size
+                i += 1
+            return None
+
+        def delete(self, key):
+            hash_key = self.hash_function(key)
+            i = 1
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    self.table[hash_key] = None
+                    return True
+                hash_key = (hash_key + i**2) % self.size
+                i += 1
+            return False
+
+    h = HashTable()
+    h.insert(1, 'one')
+    h.insert(2, 'two')
+    h.insert(3, 'three')
+    print(h.get(2))
+    h.delete(2)
+    print(h.get(2))
+    ```
+
+69. **Implement a hash table using double hashing for collision resolution.**
+    ```python
+    class HashTable:
+        def __init__(self):
+            self.size = 10
+            self.table = [None] * self.size
+
+        def hash_function1(self, key):
+            return key % self.size
+
+        def hash_function2(self, key):
+            return 7 - (key % 7)
+
+        def insert(self, key, value):
+            hash_key = self.hash_function1(key)
+            step_size = self.hash_function2(key)
+            while self.table[hash_key] is not None:
+                hash_key = (hash_key + step_size) % self.size
+            self.table[hash_key] = (key, value)
+
+        def get(self, key):
+            hash_key = self.hash_function1(key)
+            step_size = self.hash_function2(key)
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    return v
+                hash_key = (hash_key + step_size) % self.size
+            return None
+
+        def delete(self, key):
+            hash_key = self.hash_function1(key)
+            step_size = self.hash_function2(key)
+            while self.table[hash_key] is not None:
+                k, v = self.table[hash_key]
+                if k == key:
+                    self.table[hash_key] = None
+                    return True
+                hash_key = (hash_key + step_size) % self.size
+            return False
+
+    h = HashTable()
+    h.insert(1, 'one')
+    h.insert(2, 'two')
+    h.insert(3, 'three')
+    print(h.get(2))
+    h.delete(2)
+    print(h.get(2))
+    ```
+
+### More Questions to Follow...
