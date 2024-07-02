@@ -1352,4 +1352,1090 @@
     print(h.get(2))
     ```
 
+### Heaps
+
+70. **Implement a Min-Heap class.**
+
+    ```python
+    class MinHeap:
+        def __init__(self):
+            self.heap = []
+
+        def insert(self, val):
+            self.heap.append(val)
+            self._heapify_up(len(self.heap) - 1)
+
+        def _heapify_up(self, index):
+            parent_index = (index - 1) // 2
+            if index > 0 and self.heap[index] < self.heap[parent_index]:
+                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
+                self._heapify_up(parent_index)
+
+        def extract_min(self):
+            if len(self.heap) == 0:
+                raise IndexError("Heap is empty")
+            min_val = self.heap[0]
+            self.heap[0] = self.heap.pop()
+            self._heapify_down(0)
+            return min_val
+
+        def _heapify_down(self, index):
+            left_child = 2 * index + 1
+            right_child = 2 * index + 2
+            smallest = index
+
+            if left_child < len(self.heap) and self.heap[left_child] < self.heap[smallest]:
+                smallest = left_child
+            if right_child < len(self.heap) and self.heap[right_child] < self.heap[smallest]:
+                smallest = right_child
+            if smallest != index:
+                self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
+                self._heapify_down(smallest)
+
+        def peek(self):
+            if len(self.heap) == 0:
+                raise IndexError("Heap is empty")
+            return self.heap[0]
+
+    # Example usage
+    heap = MinHeap()
+    heap.insert(10)
+    heap.insert(20)
+    heap.insert(5)
+    heap.insert(30)
+    print(heap.peek())  # Output: 5
+    print(heap.extract_min())  # Output: 5
+    ```
+
+71. **Implement a Max-Heap class.**
+
+    ```python
+    class MaxHeap:
+        def __init__(self):
+            self.heap = []
+
+        def insert(self, val):
+            self.heap.append(val)
+            self._heapify_up(len(self.heap) - 1)
+
+        def _heapify_up(self, index):
+            parent_index = (index - 1) // 2
+            if index > 0 and self.heap[index] > self.heap[parent_index]:
+                self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
+                self._heapify_up(parent_index)
+
+        def extract_max(self):
+            if len(self.heap) == 0:
+                raise IndexError("Heap is empty")
+            max_val = self.heap[0]
+            self.heap[0] = self.heap.pop()
+            self._heapify_down(0)
+            return max_val
+
+        def _heapify_down(self, index):
+            left_child = 2 * index + 1
+            right_child = 2 * index + 2
+            largest = index
+
+            if left_child < len(self.heap) and self.heap[left_child] > self.heap[largest]:
+                largest = left_child
+            if right_child < len(self.heap) and self.heap[right_child] > self.heap[largest]:
+                largest = right_child
+            if largest != index:
+                self.heap[index], self.heap[largest] = self.heap[largest], self.heap[index]
+                self._heapify_down(largest)
+
+        def peek(self):
+            if len(self.heap) == 0:
+                raise IndexError("Heap is empty")
+            return self.heap[0]
+
+    # Example usage
+    heap = MaxHeap()
+    heap.insert(10)
+    heap.insert(20)
+    heap.insert(5)
+    heap.insert(30)
+    print(heap.peek())  # Output: 30
+    print(heap.extract_max())  # Output: 30
+    ```
+
+72. **Heap Sort Algorithm.**
+
+    ```python
+    def heapify(arr, n, i):
+        largest = i
+        left_child = 2 * i + 1
+        right_child = 2 * i + 2
+
+        if left_child < n and arr[left_child] > arr[largest]:
+            largest = left_child
+        if right_child < n and arr[right_child] > arr[largest]:
+            largest = right_child
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]
+            heapify(arr, n, largest)
+
+    def heap_sort(arr):
+        n = len(arr)
+        for i in range(n // 2 - 1, -1, -1):
+            heapify(arr, n, i)
+        for i in range(n-1, 0, -1):
+            arr[i], arr[0] = arr[0], arr[i]
+            heapify(arr, i, 0)
+
+    arr = [12, 11, 13, 5, 6, 7]
+    heap_sort(arr)
+    print(arr)  # Output: [5, 6, 7, 11, 12, 13]
+    ```
+
+73. **Find the Kth smallest element in an array using a heap.**
+
+    ```python
+    import heapq
+
+    def kth_smallest_element(arr, k):
+        heapq.heapify(arr)
+        for _ in range(k - 1):
+            heapq.heappop(arr)
+        return heapq.heappop(arr)
+
+    arr = [7, 10, 4, 3, 20, 15]
+    k = 3
+    print(kth_smallest_element(arr, k))  # Output: 7
+    ```
+
+74. **Merge K sorted lists using a heap.**
+
+    ```python
+    import heapq
+
+    def merge_k_lists(lists):
+        min_heap = []
+        for i, l in enumerate(lists):
+            if l:
+                heapq.heappush(min_heap, (l[0], i, 0))
+
+        result = []
+        while min_heap:
+            val, list_idx, element_idx = heapq.heappop(min_heap)
+            result.append(val)
+            if element_idx + 1 < len(lists[list_idx]):
+                next_val = lists[list_idx][element_idx + 1]
+                heapq.heappush(min_heap, (next_val, list_idx, element_idx + 1))
+        return result
+
+    lists = [[1, 4, 5], [1, 3, 4], [2, 6]]
+    print(merge_k_lists(lists))  # Output: [1, 1, 2, 3, 4, 4, 5, 6]
+    ```
+
+75. **Check if a binary tree is a heap.**
+
+    ```python
+    class Node:
+        def __init__(self, key):
+            self.left = None
+            self.right = None
+            self.val = key
+
+    def is_heap(root):
+        def count_nodes(node):
+            if not node:
+                return 0
+            return 1 + count_nodes(node.left) + count_nodes(node.right)
+
+        def is_complete_tree(node, index, number_nodes):
+            if node is None:
+                return True
+            if index >= number_nodes:
+                return False
+            return (is_complete_tree(node.left, 2 * index + 1, number_nodes) and
+                    is_complete_tree(node.right, 2 * index + 2, number_nodes))
+
+        def is_heap_util(node):
+            if node.left is None and node.right is None:
+                return True
+            if node.right is None:
+                return node.val >= node.left.val
+            if node.left is not None and node.right is not None:
+                left = node.left.val
+                right = node.right.val
+                return (node.val >= left and node.val >= right and
+                        is_heap_util(node.left) and is_heap_util(node.right))
+            return False
+
+        number_nodes = count_nodes(root)
+        if is_complete_tree(root, 0, number_nodes):
+            return is_heap_util(root)
+        return False
+
+    root = Node(10)
+    root.left = Node(9)
+    root.right = Node(8)
+    root.left.left = Node(7)
+    root.left.right = Node(6)
+    root.right.left = Node(5)
+    root.right.right = Node(4)
+
+    print(is_heap(root))  # Output: True (since it is a valid Max-Heap)
+    ```
+
+### Tries
+
+76. **Implement a Trie class with insert and search methods.**
+
+    ```python
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.is_end_of_word = False
+
+    class Trie:
+        def __init__(self):
+            self.root = TrieNode()
+
+        def insert(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    node.children[char] = TrieNode()
+                node = node.children[char]
+            node.is_end_of_word = True
+
+        def search(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return node.is_end_of_word
+
+        def starts_with(self, prefix):
+            node = self.root
+            for char in prefix:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return True
+
+    trie = Trie()
+
+
+    trie.insert("apple")
+    print(trie.search("apple"))  # Output: True
+    print(trie.search("app"))    # Output: False
+    print(trie.starts_with("app"))  # Output: True
+    ```
+
+77. **Implement a Trie class with delete method.**
+
+    ```python
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.is_end_of_word = False
+
+    class Trie:
+        def __init__(self):
+            self.root = TrieNode()
+
+        def insert(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    node.children[char] = TrieNode()
+                node = node.children[char]
+            node.is_end_of_word = True
+
+        def search(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return node.is_end_of_word
+
+        def starts_with(self, prefix):
+            node = self.root
+            for char in prefix:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return True
+
+        def delete(self, word):
+            def _delete(node, word, index):
+                if index == len(word):
+                    if not node.is_end_of_word:
+                        return False
+                    node.is_end_of_word = False
+                    return len(node.children) == 0
+                char = word[index]
+                if char not in node.children:
+                    return False
+                can_delete_child = _delete(node.children[char], word, index + 1)
+                if can_delete_child:
+                    del node.children[char]
+                    return not node.is_end_of_word and len(node.children) == 0
+                return False
+
+            _delete(self.root, word, 0)
+
+    trie = Trie()
+    trie.insert("apple")
+    trie.delete("apple")
+    print(trie.search("apple"))  # Output: False
+    ```
+
+78. **Implement a Trie class with a method to find words with a given prefix.**
+
+    ```python
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.is_end_of_word = False
+
+    class Trie:
+        def __init__(self):
+            self.root = TrieNode()
+
+        def insert(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    node.children[char] = TrieNode()
+                node = node.children[char]
+            node.is_end_of_word = True
+
+        def search(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return node.is_end_of_word
+
+        def starts_with(self, prefix):
+            node = self.root
+            for char in prefix:
+                if char not in node.children:
+                    return False
+                node = node.children[char]
+            return True
+
+        def find_words_with_prefix(self, prefix):
+            def _find_words(node, prefix, words):
+                if node.is_end_of_word:
+                    words.append(prefix)
+                for char, child in node.children.items():
+                    _find_words(child, prefix + char, words)
+
+            node = self.root
+            for char in prefix:
+                if char not in node.children:
+                    return []
+                node = node.children[char]
+            words = []
+            _find_words(node, prefix, words)
+            return words
+
+    trie = Trie()
+    trie.insert("apple")
+    trie.insert("app")
+    trie.insert("applet")
+    print(trie.find_words_with_prefix("app"))  # Output: ['apple', 'app', 'applet']
+    ```
+
+79. **Count the number of words in a Trie.**
+
+    ```python
+    class TrieNode:
+        def __init__(self):
+            self.children = {}
+            self.is_end_of_word = False
+
+    class Trie:
+        def __init__(self):
+            self.root = TrieNode()
+            self.word_count = 0
+
+        def insert(self, word):
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    node.children[char] = TrieNode()
+                node = node.children[char]
+            if not node.is_end_of_word:
+                node.is_end_of_word = True
+                self.word_count += 1
+
+        def count_words(self):
+            return self.word_count
+
+    trie = Trie()
+    trie.insert("apple")
+    trie.insert("app")
+    print(trie.count_words())  # Output: 2
+    ```
+
+### Advanced Graph Algorithms
+
+80. **Find the shortest path between two nodes using Dijkstra's algorithm.**
+
+    ```python
+    import heapq
+
+    def dijkstra(graph, start, end):
+        pq = [(0, start)]
+        distances = {node: float('inf') for node in graph}
+        distances[start] = 0
+
+        while pq:
+            current_dist, current_node = heapq.heappop(pq)
+
+            if current_node == end:
+                return current_dist
+
+            if current_dist > distances[current_node]:
+                continue
+
+            for neighbor, weight in graph[current_node]:
+                distance = current_dist + weight
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+                    heapq.heappush(pq, (distance, neighbor))
+        return float('inf')
+
+    graph = {
+        'A': [('B', 1), ('C', 4)],
+        'B': [('A', 1), ('C', 2), ('D', 5)],
+        'C': [('A', 4), ('B', 2), ('D', 1)],
+        'D': [('B', 5), ('C', 1)]
+    }
+
+    print(dijkstra(graph, 'A', 'D'))  # Output: 3
+    ```
+
+81. **Find the shortest path between two nodes using Bellman-Ford algorithm.**
+
+    ```python
+    def bellman_ford(graph, start, end):
+        distances = {node: float('inf') for node in graph}
+        distances[start] = 0
+
+        for _ in range(len(graph) - 1):
+            for u in graph:
+                for v, weight in graph[u]:
+                    if distances[u] + weight < distances[v]:
+                        distances[v] = distances[u] + weight
+
+        return distances[end]
+
+    graph = {
+        'A': [('B', 1), ('C', 4)],
+        'B': [('C', 2), ('D', 5)],
+        'C': [('D', 1)],
+        'D': []
+    }
+
+    print(bellman_ford(graph, 'A', 'D'))  # Output: 3
+    ```
+
+82. **Find the minimum spanning tree using Kruskal's algorithm.**
+
+    ```python
+    class DisjointSet:
+        def __init__(self, n):
+            self.parent = list(range(n))
+            self.rank = [0] * n
+
+        def find(self, x):
+            if self.parent[x] != x:
+                self.parent[x] = self.find(self.parent[x])
+            return self.parent[x]
+
+        def union(self, x, y):
+            rootX = self.find(x)
+            rootY = self.find(y)
+            if rootX != rootY:
+                if self.rank[rootX] > self.rank[rootY]:
+                    self.parent[rootY] = rootX
+                elif self.rank[rootX] < self.rank[rootY]:
+                    self.parent[rootX] = rootY
+                else:
+                    self.parent[rootY] = rootX
+                    self.rank[rootX] += 1
+
+    def kruskal(graph):
+        edges = []
+        for u in graph:
+            for v, weight in graph[u]:
+                edges.append((weight, u, v))
+
+        edges.sort()
+        ds = DisjointSet(len(graph))
+        mst = []
+        total_weight = 0
+
+        for weight, u, v in edges:
+            if ds.find(u) != ds.find(v):
+                ds.union(u, v)
+                mst.append((u, v, weight))
+                total_weight += weight
+
+        return mst, total_weight
+
+    graph = {
+        0: [(1, 10), (2, 6), (3, 5)],
+        1: [(0, 10), (2, 15)],
+        2: [(0, 6), (1, 15), (3, 4)],
+        3: [(0, 5), (2, 4)]
+    }
+
+    mst, total_weight = kruskal(graph)
+    print(mst)  # Output: [(0, 3, 5), (2, 3, 4), (0, 2, 6), (1, 2, 15)]
+    print(total_weight)  # Output: 30
+    ```
+
+83. **Find the minimum spanning tree using Prim's algorithm.**
+
+    ```python
+    import heapq
+
+    def prim(graph):
+        start_node = list(graph.keys())[0]
+        visited = set()
+        min_heap = [(0, start_node)]
+        total_weight = 0
+        mst = []
+
+        while min_heap:
+            weight, node = heapq.heappop(min_heap)
+            if node in visited:
+                continue
+            visited.add(node)
+            total_weight += weight
+            for next_node, edge_weight in graph[node]:
+                if next_node not in visited:
+                    heapq.heappush(min_heap, (edge_weight, next_node))
+                    mst.append((node, next_node, edge_weight))
+
+
+
+        return mst, total_weight
+
+    graph = {
+        0: [(1, 10), (2, 6), (3, 5)],
+        1: [(0, 10), (2, 15)],
+        2: [(0, 6), (1, 15), (3, 4)],
+        3: [(0, 5), (2, 4)]
+    }
+
+    mst, total_weight = prim(graph)
+    print(mst)  # Output: [(0, 3, 5), (3, 2, 4), (2, 0, 6)]
+    print(total_weight)  # Output: 15
+    ```
+
+84. **Find all strongly connected components in a directed graph using Kosaraju's algorithm.**
+
+    ```python
+    from collections import defaultdict, deque
+
+    def kosaraju(graph):
+        def dfs(v):
+            visited.add(v)
+            for neighbor in graph[v]:
+                if neighbor not in visited:
+                    dfs(neighbor)
+            stack.append(v)
+
+        def reverse_dfs(v, component):
+            visited.add(v)
+            component.append(v)
+            for neighbor in reverse_graph[v]:
+                if neighbor not in visited:
+                    reverse_dfs(neighbor, component)
+
+        stack = []
+        visited = set()
+        for node in graph:
+            if node not in visited:
+                dfs(node)
+
+        reverse_graph = defaultdict(list)
+        for u in graph:
+            for v in graph[u]:
+                reverse_graph[v].append(u)
+
+        visited = set()
+        sccs = []
+        while stack:
+            node = stack.pop()
+            if node not in visited:
+                component = []
+                reverse_dfs(node, component)
+                sccs.append(component)
+
+        return sccs
+
+    graph = {
+        0: [1],
+        1: [2],
+        2: [0, 3],
+        3: [4],
+        4: [5],
+        5: [3]
+    }
+
+    sccs = kosaraju(graph)
+    print(sccs)  # Output: [[5, 3, 4], [2, 1, 0]]
+    ```
+
+85. **Find the shortest path between two nodes in an unweighted graph using Breadth-First Search (BFS).**
+
+    ```python
+    from collections import deque
+
+    def bfs_shortest_path(graph, start, end):
+        queue = deque([(start, [start])])
+        visited = set()
+
+        while queue:
+            node, path = queue.popleft()
+            if node == end:
+                return path
+
+            visited.add(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append((neighbor, path + [neighbor]))
+
+        return None
+
+    graph = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'F'],
+        'D': ['B'],
+        'E': ['B', 'F'],
+        'F': ['C', 'E']
+    }
+
+    print(bfs_shortest_path(graph, 'A', 'F'))  # Output: ['A', 'C', 'F']
+    ```
+
+86. **Find the connected components in an undirected graph.**
+
+    ```python
+    def connected_components(graph):
+        def dfs(node, component):
+            stack = [node]
+            while stack:
+                v = stack.pop()
+                if v not in visited:
+                    visited.add(v)
+                    component.append(v)
+                    for neighbor in graph[v]:
+                        if neighbor not in visited:
+                            stack.append(neighbor)
+
+        visited = set()
+        components = []
+        for node in graph:
+            if node not in visited:
+                component = []
+                dfs(node, component)
+                components.append(component)
+
+        return components
+
+    graph = {
+        0: [1, 2],
+        1: [0],
+        2: [0],
+        3: [4],
+        4: [3],
+        5: []
+    }
+
+    print(connected_components(graph))  # Output: [[0, 1, 2], [3, 4], [5]]
+    ```
+
+87. **Check if a graph contains a cycle using Depth-First Search (DFS).**
+
+    ```python
+    def has_cycle(graph):
+        def dfs(v, parent):
+            visited.add(v)
+            for neighbor in graph[v]:
+                if neighbor not in visited:
+                    if dfs(neighbor, v):
+                        return True
+                elif parent != neighbor:
+                    return True
+            return False
+
+        visited = set()
+        for node in graph:
+            if node not in visited:
+                if dfs(node, None):
+                    return True
+        return False
+
+    graph = {
+        0: [1],
+        1: [0, 2],
+        2: [1, 3],
+        3: [2, 4],
+        4: [3, 5],
+        5: [4]
+    }
+
+    print(has_cycle(graph))  # Output: False
+    ```
+
+88. **Find the longest path in a Directed Acyclic Graph (DAG).**
+
+    ```python
+    from collections import defaultdict, deque
+
+    def longest_path_dag(graph):
+        def topological_sort():
+            indegree = {u: 0 for u in graph}
+            for u in graph:
+                for v in graph[u]:
+                    indegree[v] += 1
+
+            queue = deque([u for u in graph if indegree[u] == 0])
+            topo_order = []
+
+            while queue:
+                u = queue.popleft()
+                topo_order.append(u)
+                for v in graph[u]:
+                    indegree[v] -= 1
+                    if indegree[v] == 0:
+                        queue.append(v)
+
+            return topo_order
+
+        topo_order = topological_sort()
+        distances = {u: float('-inf') for u in graph}
+        distances[topo_order[0]] = 0
+
+        for u in topo_order:
+            for v in graph[u]:
+                if distances[u] + 1 > distances[v]:
+                    distances[v] = distances[u] + 1
+
+        return max(distances.values())
+
+    graph = {
+        0: [1, 2],
+        1: [2],
+        2: [3],
+        3: [4],
+        4: []
+    }
+
+    print(longest_path_dag(graph))  # Output: 4
+    ```
+
+89. **Find all bridges in an undirected graph.**
+
+    ```python
+    def find_bridges(graph):
+        def dfs(u, parent):
+            nonlocal time
+            visited[u] = True
+            discovery[u] = low[u] = time
+            time += 1
+
+            for v in graph[u]:
+                if not visited[v]:
+                    dfs(v, u)
+                    low[u] = min(low[u], low[v])
+                    if low[v] > discovery[u]:
+                        bridges.append((u, v))
+                elif v != parent:
+                    low[u] = min(low[u], discovery[v])
+
+        visited = {u: False for u in graph}
+        discovery = {}
+        low = {}
+        time = 0
+        bridges = []
+
+        for u in graph:
+            if not visited[u]:
+                dfs(u, None)
+
+        return bridges
+
+    graph = {
+        0: [1, 2],
+        1: [0, 2],
+        2: [0, 1, 3],
+        3: [2, 4],
+        4: [3]
+    }
+
+    print(find_bridges(graph))  # Output: [(2, 3)]
+    ```
+
+90. **Find the number of connected components in a graph.**
+
+    ```python
+    def count_connected_components(graph):
+        def dfs(node):
+            stack = [node]
+            while stack:
+                v = stack.pop()
+                if v not in visited:
+                    visited.add(v)
+                    for neighbor in graph[v]:
+                        if neighbor not in visited:
+                            stack.append(neighbor)
+
+        visited = set()
+        count = 0
+
+        for node in graph:
+            if node not in visited:
+                dfs(node)
+                count += 1
+
+        return count
+
+    graph = {
+        0: [1],
+        1: [0],
+        2: [3],
+        3: [2],
+        4: []
+    }
+
+    print(count_connected_components(graph))  # Output: 3
+    ```
+
+### Additional Questions and Solutions
+
+Here are additional questions covering various aspects of data structures and algorithms:
+
+91. **Implement a stack using a list.**
+
+    ```python
+    class Stack:
+        def __init__(self):
+            self.stack = []
+
+        def push(self, item):
+            self.stack.append(item)
+
+        def pop(self):
+            if self.is_empty():
+                raise IndexError("Pop from empty stack")
+            return self.stack.pop()
+
+        def peek(self):
+            if self.is_empty():
+                raise IndexError("Peek from empty stack")
+            return self.stack[-1]
+
+        def is_empty(self):
+            return len(self.stack) == 0
+
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    print(stack.peek())  # Output: 2
+    print(stack.pop())  # Output: 2
+    ```
+
+92. **Implement a queue using a list.**
+
+    ```python
+    class Queue:
+        def __init__(self):
+            self.queue = []
+
+        def enqueue(self, item):
+            self.queue.append(item)
+
+        def dequeue(self):
+            if self.is_empty():
+                raise IndexError("Dequeue from empty queue")
+            return
+
+ self.queue.pop(0)
+
+        def is_empty(self):
+            return len(self.queue) == 0
+
+    queue = Queue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    print(queue.dequeue())  # Output: 1
+    ```
+
+93. **Implement a doubly linked list.**
+
+    ```python
+    class Node:
+        def __init__(self, value):
+            self.value = value
+            self.next = None
+            self.prev = None
+
+    class DoublyLinkedList:
+        def __init__(self):
+            self.head = None
+            self.tail = None
+
+        def append(self, value):
+            new_node = Node(value)
+            if self.head is None:
+                self.head = self.tail = new_node
+            else:
+                self.tail.next = new_node
+                new_node.prev = self.tail
+                self.tail = new_node
+
+        def display(self):
+            node = self.head
+            while node:
+                print(node.value, end=" ")
+                node = node.next
+            print()
+
+    dll = DoublyLinkedList()
+    dll.append(1)
+    dll.append(2)
+    dll.display()  # Output: 1 2
+    ```
+
+94. **Implement a binary search tree (BST).**
+
+    ```python
+    class TreeNode:
+        def __init__(self, value):
+            self.value = value
+            self.left = None
+            self.right = None
+
+    class BinarySearchTree:
+        def __init__(self):
+            self.root = None
+
+        def insert(self, value):
+            if self.root is None:
+                self.root = TreeNode(value)
+            else:
+                self._insert(self.root, value)
+
+        def _insert(self, node, value):
+            if value < node.value:
+                if node.left is None:
+                    node.left = TreeNode(value)
+                else:
+                    self._insert(node.left, value)
+            else:
+                if node.right is None:
+                    node.right = TreeNode(value)
+                else:
+                    self._insert(node.right, value)
+
+        def search(self, value):
+            return self._search(self.root, value)
+
+        def _search(self, node, value):
+            if node is None:
+                return False
+            if node.value == value:
+                return True
+            elif value < node.value:
+                return self._search(node.left, value)
+            else:
+                return self._search(node.right, value)
+
+    bst = BinarySearchTree()
+    bst.insert(5)
+    bst.insert(3)
+    bst.insert(7)
+    print(bst.search(3))  # Output: True
+    ```
+
+95. **Check if a string is a palindrome.**
+
+    ```python
+    def is_palindrome(s):
+        return s == s[::-1]
+
+    print(is_palindrome("racecar"))  # Output: True
+    print(is_palindrome("hello"))    # Output: False
+    ```
+
+96. **Reverse a string.**
+
+    ```python
+    def reverse_string(s):
+        return s[::-1]
+
+    print(reverse_string("hello"))  # Output: "olleh"
+    ```
+
+97. **Find the largest prime factor of a number.**
+
+    ```python
+    def largest_prime_factor(n):
+        factor = 2
+        while factor * factor <= n:
+            if n % factor:
+                factor += 1
+            else:
+                n //= factor
+        return n
+
+    print(largest_prime_factor(56))  # Output: 7
+    ```
+
+98. **Find the nth Fibonacci number.**
+
+    ```python
+    def fibonacci(n):
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
+
+    print(fibonacci(10))  # Output: 55
+    ```
+
+99. **Generate a list of prime numbers up to n using the Sieve of Eratosthenes.**
+
+    ```python
+    def sieve_of_eratosthenes(n):
+        primes = []
+        sieve = [True] * (n + 1)
+        for p in range(2, n + 1):
+            if sieve[p]:
+                primes.append(p)
+                for multiple in range(p * p, n + 1, p):
+                    sieve[multiple] = False
+        return primes
+
+    print(sieve_of_eratosthenes(30))  # Output: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    ```
+
+100. **Find the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.**
+
+    ```python
+    def gcd(a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
+    print(gcd(54, 24))  # Output: 6
+    ```
+
 ### More Questions to Follow...
